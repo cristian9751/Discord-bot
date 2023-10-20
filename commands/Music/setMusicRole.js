@@ -26,13 +26,12 @@ module.exports = {
         console.log(alreadyHasPermission)
         if(alreadyHasPermission) {
             return interaction.editReply({content : `El rol ${role.name} ya tiene permisos de musica`, ephemeral : true})
-        } else if(alreadyHasPermission === null) {
-            return interaction.editReply({content : `Ha ocurrido un error al comprobar los permisos intentalo mas tarde`, ephemeral : true})
         }
 
         const issuerHasPermissions = await checkPermissions(interaction, "super_roles")
         if(issuerHasPermissions) {
             const inserted = await insert(role.id);
+            console.log("Inserted" + inserted)
             if(inserted) {
                 return interaction.editReply({content : `Se ha asignado el permiso de musica al rol ${role.name}`,
                     ephemeral : true})

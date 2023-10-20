@@ -7,7 +7,6 @@ const db_config = {
     user     : process.env.MYSQL_USERNAME,
     password : process.env.MYSQL_PASSWORD,
     database : process.env.MYSQL_DATABASE,
-    ssl : true
 }
 
 
@@ -16,6 +15,7 @@ async function doConnection() {
     return new Promise((resolve, reject) => {
         connection.connect((error) => {
             if(error) {
+                console.log("Error en la conexion a la base de datos")
                 reject(error)
             } else {
                 resolve(connection)
