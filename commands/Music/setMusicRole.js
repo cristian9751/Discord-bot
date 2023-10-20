@@ -24,7 +24,7 @@ module.exports = {
         }
         const alreadyHasPermission = await select(role.id);
         console.log(alreadyHasPermission)
-        if(alreadyHasPermission) {
+        if(alreadyHasPermission !== null && alreadyHasPermission.length > 0) {
             return interaction.editReply({content : `El rol ${role.name} ya tiene permisos de musica`, ephemeral : true})
         }
 
