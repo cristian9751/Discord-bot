@@ -8,19 +8,9 @@ const distube_config = {
     leaveOnFinish: false,
     leaveOnStop: true,
     savePreviousSongs: true,
-    searchResults: 3,
     searchSongs: 0,
-    nfsw: false,
     joinNewVoiceChannel: true,
     directLink: false,
-    youtubeDL: false,
-    ytld : {
-        highWaterMark: 1024*1024*64,
-        quality : "highestaudio",
-        format : "audioonly",
-        liveBuffer : 60000,
-        dlChunkSize: 1024*1024*4,
-    }
 }
 
 
