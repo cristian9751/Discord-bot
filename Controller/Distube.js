@@ -21,13 +21,12 @@ const distube_config = {
         liveBuffer : 60000,
         dlChunkSize: 1024*1024*4,
     },
-    plugins : [
-        new SpotifyPlugin({
+    plugins : [new SpotifyPlugin(
+        {
             parallel : true,
-            emitEventsAfterFetching: true
-        }),
-        new SoundCloudPlugin()
-    ]
+            emitEventsAfterFetching : true
+        }
+    ), new SoundCloudPlugin()]
 }
 
 
