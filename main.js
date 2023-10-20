@@ -6,6 +6,7 @@ const { DisTube } = require("distube");
 const {SpotifyPlugin } = require("@distube/spotify");
 const  {SoundCloudPlugin} = require("@distube/soundcloud");
 const token = base_config.token;
+const { distube_config } = require('./Controller/Distube.js')
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates] });
 
@@ -41,23 +42,7 @@ for (const file of eventFiles) {
 }
 
 
-client.distube = new DisTube(client, {
-    emitNewSongOnly: false,
-    emptyCooldown: 20,
-    leaveOnEmpty: true,
-    leaveOnFinish: false,
-    leaveOnStop: true,
-    savePreviousSongs: true,
-    searchSongs: 0,
-    joinNewVoiceChannel: true,
-    directLink: false,
-    plugins : [new SpotifyPlugin(
-        {
-            parallel : true,
-            emitEventsAfterFetching : true
-        }
-    ), new SoundCloudPlugin()]
-})
+client.distube = new DisTube(client, distube_config)
 
 client.login(token);
 
